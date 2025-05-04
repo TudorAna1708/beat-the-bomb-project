@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\anatu\OneDrive - Universitatea Politehnica Bucuresti\Desktop\beat_the_bomb_project\CMakeFiles\37d70c63dbe8bf766c6c6f191a5f4a12\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7F1DBCEA-12B9-346C-ACE2-615A5C61AC9E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

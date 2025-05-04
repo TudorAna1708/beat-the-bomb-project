@@ -1,0 +1,543 @@
+[
+    {
+        "question": "What is the primary purpose of licensing in the context of digital content?",
+        "answers": [
+            {"text": "Provide legal permission to use digital content.", "correct": true},
+            {"text": "Generate revenue for content creators.", "correct": false},
+            {"text": "Restrict access to digital content.", "correct": false},
+            {"text": "Regulate the distribution of digital content.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a licensee in the context of licensing agreements?",
+        "answers": [
+            {"text": "The party granted permission to use the intellectual property.", "correct": true},
+            {"text": "The creator of the digital content.", "correct": false},
+            {"text": "The entity responsible for monitoring copyright infringement.", "correct": false},
+            {"text": "The legal document outlining the terms of use.", "correct": false}
+        ]
+    },
+    {
+        "question": "If you gain access to the source code of a software product, are you free to use it any way you want?",
+        "answers": [
+            {"text": "No, because the licence agreement usually contains stipulations on this scenario.", "correct": true},
+            {"text": "No, because the product/content already exists on the market and therefore the code cannot provide you any market advantage.", "correct": false},
+            {"text": "Yes, because if you gain access to the code it means that it was not a sensitive information.", "correct": false},
+            {"text": "Yes, because it is company's responsibility to protect their data and there are no legal consequences for using this information.", "correct": false}
+        ]
+    },
+    {
+        "question": "Which type of licensing agreement is used for exclusive ownership over creative works?",
+        "answers": [
+            {"text": "Copyright licensing.", "correct": true},
+            {"text": "Exclusive licence.", "correct": false},
+            {"text": "Patent licensing.", "correct": false},
+            {"text": "Trademark licensing.", "correct": false}
+        ]
+    },
+    {
+        "question": "What does a termination clause in a licensing agreement specify?",
+        "answers": [
+            {"text": "The conditions for ending the licensing agreement.", "correct": true},
+            {"text": "The obligations of both licensor and licensee.", "correct": false},
+            {"text": "The compensation paid to the licensor.", "correct": false},
+            {"text": "The duration of the license.", "correct": false}
+        ]
+    },
+    {
+        "question": "How do licensing agreements benefit businesses?",
+        "answers": [
+            {"text": "Enabling them to leverage their IP for revenue.", "correct": true},
+            {"text": "Limiting their intellectual property rights.", "correct": false},
+            {"text": "Increasing their reputation and brand quality.", "correct": false},
+            {"text": "Reducing the need for licensing agreements.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is an important consideration regarding licensees' impact on a company's reputation?",
+        "answers": [
+            {"text": "Clear standards and monitoring methods must be implemented.", "correct": true},
+            {"text": "Negative feedback from clients is unavoidable.", "correct": false},
+            {"text": "Reputation damage is reversible.", "correct": false},
+            {"text": "Licensees have no impact on a company's reputation.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is the primary purpose of patent licensing?",
+        "answers": [
+            {"text": "Share patented creations for mass production and distribution.", "correct": true},
+            {"text": "Maximize income from products through non-exclusive agreements.", "correct": false},
+            {"text": "Grant exclusive rights over creative works.", "correct": false},
+            {"text": "Allow licensees to use brand logos and slogans.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a licence?",
+        "answers": [
+            {"text": "The official permission or permit to do, use, or own something, as well as the document of that permission or permit.", "correct": true},
+            {"text": "A digital content vendor.", "correct": false},
+            {"text": "A service provided by the search engine.", "correct": false},
+            {"text": "Trade secret information.", "correct": false}
+        ]
+    },
+    {
+        "question": "Why is it important for users to be aware of licence agreements and respect them?",
+        "answers": [
+            {"text": "To avoid legal consequences, in addition to respecting intellectual property rights.", "correct": true},
+            {"text": "They might gain free access to additional digital content if they respect the licence agreement.", "correct": false},
+            {"text": "Respecting the agreements provides you a competitive edge.", "correct": false},
+            {"text": "None of the above, licence agreements are not relevant.", "correct": false}
+        ]
+    },
+    {
+        "question": "How does the number of licensors and licensees impact licensing arrangements?",
+        "answers": [
+            {"text": "It affects negotiating tactics and administration of intellectual property rights.", "correct": true},
+            {"text": "It reduces the need for comprehensive paperwork.", "correct": false},
+            {"text": "It has no effect on the dynamics of licensing agreements.", "correct": false},
+            {"text": "It simplifies the negotiation process.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is provided through licensing agreements regarding the use of the licensor's intellectual property?",
+        "answers": [
+            {"text": "Clear guidelines, rules, and terms.", "correct": true},
+            {"text": "Marketing strategies.", "correct": false},
+            {"text": "Manufacturing instructions.", "correct": false},
+            {"text": "Detailed financial reports.", "correct": false}
+        ]
+    },
+    {
+        "question": "What benefit does a licensee gain from entering into a licensing agreement?",
+        "answers": [
+            {"text": "Reduction of costs, time, and inconveniences.", "correct": true},
+            {"text": "Control over manufacturing and commercialization processes.", "correct": false},
+            {"text": "Access to new markets without any contractual obligations.", "correct": false},
+            {"text": "Direct involvement in product development.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a disadvantage of licensing agreements?",
+        "answers": [
+            {"text": "Risk of being entangled in extended agreements with conflicting parties.", "correct": true},
+            {"text": "Increased credibility and brand strength.", "correct": false},
+            {"text": "Limited control over marketing efforts.", "correct": false},
+            {"text": "Simplified negotiation process.", "correct": false}
+        ]
+    },
+    {
+        "question": "What does the term 'royalties' refer to, in licensing area?",
+        "answers": [
+            {"text": "Payments made by a licensee to a licensor for the right to use intellectual property.", "correct": true},
+            {"text": "Fees charged by the government for obtaining a business license.", "correct": false},
+            {"text": "Financial rewards given to employees for their performance.", "correct": false},
+            {"text": "Penalties imposed for copyright infringement.", "correct": false}
+        ]
+    },
+    {
+        "question": "From a licensor's perspective, what advantage does a licensing agreement offer?",
+        "answers": [
+            {"text": "Access to new markets and authority over intellectual capital.", "correct": true},
+            {"text": "Limited control over marketing efforts.", "correct": false},
+            {"text": "Increased competition in the market.", "correct": false},
+            {"text": "Reduction of administrative tasks.", "correct": false}
+        ]
+    },
+    {
+        "question": "What risk does a licensor face if they neglect to conduct a proper investigation before entering into a licensing agreement?",
+        "answers": [
+            {"text": "Loss of control over shared intellectual property.", "correct": true},
+            {"text": "Simplification of administrative tasks.", "correct": false},
+            {"text": "Reduction in manufacturing costs.", "correct": false},
+            {"text": "Increased market competition.", "correct": false}
+        ]
+    },
+    {
+        "question": "In the context of licensing, what does the term 'licensor' refer to?",
+        "answers": [
+            {"text": "The party granting the licence.", "correct": true},
+            {"text": "A legal requirement for licensing agreements.", "correct": false},
+            {"text": "The person or entity that obtains a licence.", "correct": false},
+            {"text": "A type of licensing fee.", "correct": false}
+        ]
+    },
+    {
+        "question": "What type of licence agreement grants exclusive rights over the intellectual property?",
+        "answers": [
+            {"text": "Exclusive licence.", "correct": true},
+            {"text": "Patent licence.", "correct": false},
+            {"text": "Trademark licence.", "correct": false},
+            {"text": "Open licence.", "correct": false}
+        ]
+    },
+    {
+        "question": "What role does comprehensive paperwork play in licensing agreements?",
+        "answers": [
+            {"text": "It outlines the rules, restrictions, and terms of the agreement.", "correct": true},
+            {"text": "It increases manufacturing costs.", "correct": false},
+            {"text": "It simplifies the negotiation process.", "correct": false},
+            {"text": "It simplifies the negotiation process.", "correct": false}
+        ]
+    },
+    {
+        "question": "How does cryptographic hashing contribute to the operation of a blockchain?",
+        "answers": [
+            {"text": "By transforming data into a fixed-size bit string.", "correct": true},
+            {"text": "By encrypting transaction data.", "correct": false},
+            {"text": "By providing security for intellectual property.", "correct": false},
+            {"text": "By safely connecting documents.", "correct": false}
+        ]
+    },
+    {
+        "question": "What components are included in each block of a blockchain?",
+        "answers": [
+            {"text": "Transaction data and previous block's hash.", "correct": true},
+            {"text": "Cryptographic hash of the next block.", "correct": false},
+            {"text": "Transaction data and timestamp.", "correct": false},
+            {"text": "Timestamp and transaction data only.", "correct": false}
+        ]
+    },
+    {
+        "question": "Why are blockchain transactions irreversible?",
+        "answers": [
+            {"text": "Updating data in one block requires updating all future blocks.", "correct": true},
+            {"text": "Transactions are verified by network nodes en masse.", "correct": false},
+            {"text": "Due to the timestamp included in each block.", "correct": false},
+            {"text": "Blocks are created using cryptographic hashing.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is the method of validating and attaching new transaction blocks?",
+        "answers": [
+            {"text": "Through consensus method protocols.", "correct": true},
+            {"text": "Using cryptographic encryption.", "correct": false},
+            {"text": "By centralized authorities.", "correct": false},
+            {"text": "By individual users.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is the objective of smart contracts?",
+        "answers": [
+            {"text": "All answers are correct.", "correct": true},
+            {"text": "Decreasing fraud risks.", "correct": false},
+            {"text": "Minimizing reliance on trusted intermediaries.", "correct": false},
+            {"text": "Reducing arbitration costs.", "correct": false}
+        ]
+    },
+    {
+        "question": "What does the term 'fixed data' in blockchain technology refer to?",
+        "answers": [
+            {"text": "Maintaining an irreversible record of intellectual property licenses.", "correct": true},
+            {"text": "Creating a sequential chain of blocks.", "correct": false},
+            {"text": "Preventing unauthorized access to data.", "correct": false},
+            {"text": "Safely documenting transactions on the blockchain.", "correct": false}
+        ]
+    },
+    {
+        "question": "How can blockchain technology assist in creating a globally accessible database related to intellectual property?",
+        "answers": [
+            {"text": "By streamlining the process of looking up current licenses.", "correct": true},
+            {"text": "By reducing arbitration costs.", "correct": false},
+            {"text": "By providing encryption for sensitive data.", "correct": false},
+            {"text": "By eliminating the need for trusted intermediaries.", "correct": false}
+        ]
+    },
+    {
+        "question": "What property of blockchain technology ensures the security of intellectual property information?",
+        "answers": [
+            {"text": "Cryptographic characteristics.", "correct": true},
+            {"text": "Decentralization.", "correct": false},
+            {"text": "Worldwide availability.", "correct": false},
+            {"text": "Timestamp inclusion in blocks.", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a significant challenge associated with using blockchain technology and smart contracts in licensing agreements?",
+        "answers": [
+            {"text": "Legal and regulatory framework.", "correct": true},
+            {"text": "Streamlining the process of looking up licenses.", "correct": false},
+            {"text": "Encryption of sensitive data.", "correct": false},
+            {"text": "Reduction of errors in transactions.", "correct": false}
+        ]
+    },
+    {
+        "question": "How do smart contracts contribute to reducing fraud risks or human errors in transactions?",
+        "answers": [
+            {"text": "Through automating contract execution.", "correct": true},
+            {"text": "By eliminating trusted intermediaries.", "correct": false},
+            {"text": "Using encryption for sensitive data.", "correct": false},
+            {"text": "By streamlining the process of looking up licenses.", "correct": false}
+        ]
+    },
+    {
+        "question": "What does a programmer do?",
+        "answers": [
+            {"text": "Design and develop software by using algorithms and data structures in a programming language", "correct": true},
+            {"text": "Create programming languages", "correct": false},
+            {"text": "Create problems that can only be solved using software", "correct": false},
+            {"text": "Makes sure that IT systems are running and are up to date in an organization", "correct": false}
+        ]
+    },
+    {
+        "question": "What can be used as data type in programming?",
+        "answers": [
+            {"text": "All the rest", "correct": true},
+            {"text": "Numbers", "correct": false},
+            {"text": "Letters", "correct": false},
+            {"text": "Words", "correct": false}
+        ]
+    },
+    {
+        "question": "What is an algorithm?",
+        "answers": [
+            {"text": "An algorithm is a step-by-step process that defines a set of instructions", "correct": true},
+            {"text": "An algorithm is an educated guess of what a system will return as an output", "correct": false},
+            {"text": "An algorithm is list of to-do's that a programmer needs to accomplish at work", "correct": false},
+            {"text": "An algorithm is a recipe on how to create an application", "correct": false}
+        ]
+    },
+    {
+        "question": "Select an example of two popular programming languages?",
+        "answers": [
+            {"text": "Python and Java", "correct": true},
+            {"text": "Silver and Crast", "correct": false},
+            {"text": "A-Star and D--", "correct": false},
+            {"text": "TTCC and Marvel", "correct": false}
+        ]
+    },
+    {
+        "question": "Name the two basic instructions used in programming?",
+        "answers": [
+            {"text": "If Clause and Loops", "correct": true},
+            {"text": "SQL and Query", "correct": false},
+            {"text": "Classes and Graphs", "correct": false},
+            {"text": "Compiler and interpreter", "correct": false}
+        ]
+    },
+    {
+        "question": "What is the objective of programming?",
+        "answers": [
+            {"text": "To solve problems, automate tasks and create new products using by creating software programs", "correct": true},
+            {"text": "To create problems in existing processes and products", "correct": false},
+            {"text": "To create programming languages for every person to speak to a machine", "correct": false},
+            {"text": "To solve problems by creating a program for every issue in the world", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a programming language?",
+        "answers": [
+            {"text": "Programming languages are a set of rules that determine how to write instructions that a computer can understand", "correct": true},
+            {"text": "Are languages that are spoken by machines so they can talk to each other", "correct": false},
+            {"text": "Programming languages are a set of keywords used by programmers to collaborate between them to solve a problem", "correct": false},
+            {"text": "Are languages that only programmers can understand and use at the workplace to communicate more efficiently", "correct": false}
+        ]
+    },
+    {
+        "question": "How can a computer understand the instructions written by a programmer?",
+        "answers": [
+            {"text": "Through instructions written in a programming language which are converted into a machine-readable format through the process of compilation or interpretation", "correct": true},
+            {"text": "Through diagrams and schemas drawn by programmers on a piece of paper that they upload to the computer", "correct": false},
+            {"text": "Through instructions written in multiple programming languages which are machine readable after multiple processes of compiling, translating and interpreting", "correct": false},
+            {"text": "Through requests written in a programming language that they put directly on the hardware", "correct": false}
+        ]
+    },
+    {
+        "question": "What are the main two most basic concepts used in programming?",
+        "answers": [
+            {"text": "Algorithms and data structures", "correct": true},
+            {"text": "Classes and objects", "correct": false},
+            {"text": "APIs and HTTPS requests", "correct": false},
+            {"text": "Big Data and Machine Learning", "correct": false}
+        ]
+    },
+    {
+        "question": "How is programming used today by businesses in the context of digital content?",
+        "answers": [
+            {"text": "All other options", "correct": true},
+            {"text": "By developing content through digital art", "correct": false},
+            {"text": "By creating channels of distribution for the content", "correct": false},
+            {"text": "To create enhanced content", "correct": false}
+        ]
+    },
+    {
+        "question": "Which of the following is a data structure?",
+        "answers": [
+            {"text": "Queue", "correct": true},
+            {"text": "Honeycomb", "correct": false},
+            {"text": "Block", "correct": false},
+            {"text": "Note", "correct": false}
+        ]
+    },
+    {
+        "question": "Which one is NOT a sorting algorithm?",
+        "answers": [
+            {"text": "Fire sort", "correct": true},
+            {"text": "Merge sort", "correct": false},
+            {"text": "Bubble sort", "correct": false},
+            {"text": "Quick sort", "correct": false}
+        ]
+    },
+    {
+        "question": "Which of the following is NOT a benefit of using classes in OOP?",
+        "answers": [
+            {"text": "Make code more hard to understand", "correct": true},
+            {"text": "Make code reusable", "correct": false},
+            {"text": "Make code more secure", "correct": false},
+            {"text": "Make code easier to distribute", "correct": false}
+        ]
+    },
+    {
+        "question": "Which of the object oriented programming advantages ensures that programmers can expand the code easily?",
+        "answers": [
+            {"text": "Inheritance", "correct": true},
+            {"text": "Brotherhood", "correct": false},
+            {"text": "Copy-paste", "correct": false},
+            {"text": "Encapsulation", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a programming architecture?",
+        "answers": [
+            {"text": "A high-level design of a software application", "correct": true},
+            {"text": "An implementation of a software application", "correct": false},
+            {"text": "The output of a software application", "correct": false},
+            {"text": "The way a company has their software programs organized", "correct": false}
+        ]
+    },
+    {
+        "question": "Which of the following is NOT a data structure?",
+        "answers": [
+            {"text": "Blocks", "correct": true},
+            {"text": "Trees", "correct": false},
+            {"text": "Stacks", "correct": false},
+            {"text": "Graphs", "correct": false}
+        ]
+    },
+    {
+        "question": "Which one is NOT a common class of algorithms?",
+        "answers": [
+            {"text": "Guessing algorithms", "correct": true},
+            {"text": "Sorting algorithms", "correct": false},
+            {"text": "Traversal algorithms", "correct": false},
+            {"text": "Searching algorithms", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a class in OOP?",
+        "answers": [
+            {"text": "A blueprint for creating objects", "correct": true},
+            {"text": "A collection of functions", "correct": false},
+            {"text": "A way to organize code", "correct": false},
+            {"text": "A collection of data structures", "correct": false}
+        ]
+    },
+    {
+        "question": "Which of the following is NOT an advantage of object oriented programming?",
+        "answers": [
+            {"text": "Readability", "correct": true},
+            {"text": "Encapsulation", "correct": false},
+            {"text": "Inheritance", "correct": false},
+            {"text": "Reusability", "correct": false}
+        ]
+    },
+    {
+        "question": "Which one is NOT an example of architecture?",
+        "answers": [
+            {"text": "Fast-response architecture", "correct": true},
+            {"text": "Client-server architecture", "correct": false},
+            {"text": "Layered architecture", "correct": false},
+            {"text": "Microservices architecture", "correct": false}
+        ]
+    },
+    {
+        "question": "What role does backend development play?",
+        "answers": [
+            {"text": "To create the server-side logic of a web app", "correct": true},
+            {"text": "To design the web app", "correct": false},
+            {"text": "To create the content of the web app", "correct": false},
+            {"text": "To create the user experience of the web app", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a content management system?",
+        "answers": [
+            {"text": "An app used to create, manage, and modify content for a website", "correct": true},
+            {"text": "A programming language", "correct": false},
+            {"text": "An web framework", "correct": false},
+            {"text": "A tool deploy websites", "correct": false}
+        ]
+    },
+    {
+        "question": "What is the database used for?",
+        "answers": [
+            {"text": "Store data that is used for the website", "correct": true},
+            {"text": "Create the website", "correct": false},
+            {"text": "Store websites", "correct": false},
+            {"text": "Create data for the website", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a web framework?",
+        "answers": [
+            {"text": "A collection of tools and libraries used to create a website", "correct": true},
+            {"text": "A tool to design websites", "correct": false},
+            {"text": "A user interface", "correct": false},
+            {"text": "A type of web server", "correct": false}
+        ]
+    },
+    {
+        "question": "What defines a responsive design?",
+        "answers": [
+            {"text": "All the rest", "correct": true},
+            {"text": "A design that applies for all types of devices", "correct": false},
+            {"text": "A design that applies for different screen sizes", "correct": false},
+            {"text": "A design where content is adapted for context", "correct": false}
+        ]
+    },
+    {
+        "question": "Which of the following is NOT a core technology of web development?",
+        "answers": [
+            {"text": "Mobile development", "correct": true},
+            {"text": "CSS", "correct": false},
+            {"text": "HTML", "correct": false},
+            {"text": "JavaScript", "correct": false}
+        ]
+    },
+    {
+        "question": "What role does the frontend development play?",
+        "answers": [
+            {"text": "To create the visual interface including the interactions for a website", "correct": true},
+            {"text": "To manage the content of the website", "correct": false},
+            {"text": "To create the user experience of a website", "correct": false},
+            {"text": "To distribute web application in multiple languages", "correct": false}
+        ]
+    },
+    {
+        "question": "What can people without programming skills use to create a website?",
+        "answers": [
+            {"text": "A CMS", "correct": true},
+            {"text": "A SCSS", "correct": false},
+            {"text": "A Domain", "correct": false},
+            {"text": "A CRM", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a domain name?",
+        "answers": [
+            {"text": "An unique name that identifies a website on the internet", "correct": true},
+            {"text": "A name used for a web server", "correct": false},
+            {"text": "A name used to identify a web page", "correct": false},
+            {"text": "An address used to find a website", "correct": false}
+        ]
+    },
+    {
+        "question": "What is a web hosting service?",
+        "answers": [
+            {"text": "All the rest", "correct": true},
+            {"text": "A service that offers security measures for a website", "correct": false},
+            {"text": "A service that provides a web server for a website", "correct": false},
+            {"text": "A service that provides storage space for web pages", "correct": false}
+        ]
+    }
+    
+]

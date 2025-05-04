@@ -1,0 +1,4 @@
+C:/Users/anatu/OneDrive - Universitatea Politehnica Bucuresti/Desktop/beat_the_bomb_project/build/CMakeFiles/bomb_game.dir
+C:/Users/anatu/OneDrive - Universitatea Politehnica Bucuresti/Desktop/beat_the_bomb_project/build/CMakeFiles/INSTALL.dir
+C:/Users/anatu/OneDrive - Universitatea Politehnica Bucuresti/Desktop/beat_the_bomb_project/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/anatu/OneDrive - Universitatea Politehnica Bucuresti/Desktop/beat_the_bomb_project/build/CMakeFiles/ZERO_CHECK.dir

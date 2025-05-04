@@ -1,0 +1,10 @@
+^C:\USERS\ANATU\ONEDRIVE - UNIVERSITATEA POLITEHNICA BUCURESTI\DESKTOP\BEAT_THE_BOMB_PROJECT\CMAKELISTS.TXT
+setlocal
+C:\Users\anatu\AppData\Local\Programs\Python\Python312\Lib\site-packages\cmake\data\bin\cmake.exe "-SC:/Users/anatu/OneDrive - Universitatea Politehnica Bucuresti/Desktop/beat_the_bomb_project" "-BC:/Users/anatu/OneDrive - Universitatea Politehnica Bucuresti/Desktop/beat_the_bomb_project/build" --check-stamp-file "C:/Users/anatu/OneDrive - Universitatea Politehnica Bucuresti/Desktop/beat_the_bomb_project/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
