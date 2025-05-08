@@ -9,7 +9,7 @@
         ]
     },
     {
-        "question": "What is a licensee in the context of licensing agreements?",
+        "question": "What is a license in the context of licensing agreements?",
         "answers": [
             {"text": "The party granted permission to use the intellectual property.", "correct": true},
             {"text": "The creator of the digital content.", "correct": false},

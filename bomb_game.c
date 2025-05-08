@@ -1,6 +1,7 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef struct {
     int score;
@@ -14,7 +15,7 @@ typedef struct {
 #define MAX_GAME_TIME 20.0
 #define CORRECT_ANSWER_POINTS 10
 #define TIME_FOR_CORRECT_ANSWER 5.0
-#define TIME_PENALTY_FOR_WRONG 10.0
+#define TIME_PENALTY_FOR_WRONG 3.0
 
 // Global game state
 static GameState *game = NULL;
@@ -44,7 +45,7 @@ static void answer_question_internal(int is_correct) {
         if (game->time_remaining > MAX_GAME_TIME)
             game->time_remaining = MAX_GAME_TIME;
     } else {
-        game->time_remaining -= TIME_PENALTY_FOR_WRONG;
+       game->time_remaining -= TIME_PENALTY_FOR_WRONG;
     }
 }
 
