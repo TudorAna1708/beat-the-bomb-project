@@ -392,25 +392,6 @@ class BeatTheBombGame:
         self.save_score(self.score)
         self.draw_play_again_button()
 
-    def draw_menu_button(self, text, index, total_buttons):
-        """Draw a menu button and return its Rect"""
-        button_width, button_height = 600, 80
-        button_x = self.screen_width // 2 - button_width // 2
-        button_y = self.screen_height // 2 - (total_buttons * button_height) // 2 + index * (button_height + 20)
-        
-        button_rect = pygame.Rect(button_x, button_y, button_width, button_height)
-        mouse_pos = pygame.mouse.get_pos()
-        button_color = LIGHT_BLUE if button_rect.collidepoint(mouse_pos) else GRAY
-        
-        pygame.draw.rect(self.screen, button_color, button_rect)
-        pygame.draw.rect(self.screen, BLACK, button_rect, 2)
-        
-        button_text = self.button_font.render(text, True, BLACK)
-        button_text_rect = button_text.get_rect(center=button_rect.center)
-        self.screen.blit(button_text, button_text_rect)
-        
-        return button_rect
-
     def draw_menu(self):
         """Draw the appropriate menu based on current node"""
         self.screen.fill(WHITE)
@@ -418,58 +399,80 @@ class BeatTheBombGame:
         
         # Draw title
         title = self.menu_font.render(self.question_graph.get_node_title(self.current_node), True, BLACK)
-        title_rect = title.get_rect(center=(self.screen_width//2, self.screen_height//2 - 150))
+        title_rect = title.get_rect(center=(self.screen_width//2, 100))
         self.screen.blit(title, title_rect)
         
-        # Draw back button if not at root
-        if self.current_node != 'root':
-            back_width, back_height = 100, 40
-            back_x = 20
-            back_y = 20
+        # Draw back button 
+        back_width, back_height = 100, 40
+        back_x = 20
+        back_y = 20
             
-            self.back_button = pygame.Rect(back_x, back_y, back_width, back_height)
-            mouse_pos = pygame.mouse.get_pos()
-            back_color = LIGHT_BLUE if self.back_button.collidepoint(mouse_pos) else GRAY
-            pygame.draw.rect(self.screen, back_color, self.back_button)
-            pygame.draw.rect(self.screen, BLACK, self.back_button, 2)
+        self.back_button = pygame.Rect(back_x, back_y, back_width, back_height)
+        mouse_pos = pygame.mouse.get_pos()
+        back_color = LIGHT_BLUE if self.back_button.collidepoint(mouse_pos) else GRAY
+        pygame.draw.rect(self.screen, back_color, self.back_button)
+        pygame.draw.rect(self.screen, BLACK, self.back_button, 2)
             
-            back_text = self.button_font.render("Back", True, BLACK)
-            back_text_rect = back_text.get_rect(center=self.back_button.center)
-            self.screen.blit(back_text, back_text_rect)
+        back_text = self.button_font.render("Back", True, BLACK)
+        back_text_rect = back_text.get_rect(center=self.back_button.center)
+        self.screen.blit(back_text, back_text_rect)
         
         # Draw menu buttons for children
         children = self.question_graph.get_children(self.current_node)
+        button_width, button_height = 600, 80
+        start_y = 180  
+    
         for i, child in enumerate(children):
-            button = self.draw_menu_button(self.question_graph.get_node_title(child), i, len(children))
-            self.menu_buttons.append((child, button))
+            button_x = self.screen_width // 2 - button_width // 2
+            button_y = start_y + i * (button_height + 20)
+            
+            button_rect = pygame.Rect(button_x, button_y, button_width, button_height)
+            mouse_pos = pygame.mouse.get_pos()
+            button_color = LIGHT_BLUE if button_rect.collidepoint(mouse_pos) else GRAY
+            
+            pygame.draw.rect(self.screen, button_color, button_rect)
+            pygame.draw.rect(self.screen, BLACK, button_rect, 2)
+            
+            button_text = self.button_font.render(self.question_graph.get_node_title(child), True, BLACK)
+            button_text_rect = button_text.get_rect(center=button_rect.center)
+            self.screen.blit(button_text, button_text_rect)
+            
+            self.menu_buttons.append((child, button_rect))
         
         pygame.display.flip()
 
     def handle_menu_click(self, pos):
         """Handle clicks on the menu screen"""
-        # Check back button first
-        if hasattr(self, 'back_button') and self.back_button and self.back_button.collidepoint(pos):
-            if self.previous_nodes:
-                self.current_node = self.previous_nodes.pop()
-                self.draw_menu()
-            return
-        
-        # Check menu buttons
+        # Check menu buttons first
         for node_id, button in self.menu_buttons:
             if button.collidepoint(pos):
-                node_type = self.question_graph.graph['nodes'][node_id]['type']
+                if node_id not in self.question_graph.graph['nodes']:
+                    continue  # Skip invalid nodes
                 
-                if node_type == 'question_set':
+                node = self.question_graph.graph['nodes'][node_id]
+                if node['type'] == 'question_set':
                     # Start the game with these questions
                     self.questions = self.question_graph.get_questions(node_id)
-                    self.reset_game()
-                    self.in_menu = False
+                    if self.questions:  # Only proceed if we got questions
+                        self.reset_game()
+                        self.in_menu = False
+                        return
                 else:
                     # Navigate to next menu
                     self.previous_nodes.append(self.current_node)
                     self.current_node = node_id
                     self.draw_menu()
-                return
+                    return
+        
+        # Then check back button
+        if hasattr(self, 'back_button') and self.back_button and self.back_button.collidepoint(pos):
+            if self.current_node == 'root':
+                # If at root, go back to welcome screen
+                self.show_welcome = True
+            elif self.previous_nodes:
+                # Otherwise navigate back in the menu hierarchy
+                self.current_node = self.previous_nodes.pop()
+                self.draw_menu()
 
     def handle_click(self, pos):
         if self.game_over and self.play_again_button and self.play_again_button.collidepoint(pos):
