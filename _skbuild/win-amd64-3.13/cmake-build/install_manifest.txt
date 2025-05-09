@@ -1,0 +1,1 @@
+C:/Users/anatu/OneDrive - Universitatea Politehnica Bucuresti/Desktop/beat_the_bomb_project/_skbuild/win-amd64-3.13/cmake-install/bomb_game/./bomb_game.pyd

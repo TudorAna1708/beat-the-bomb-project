@@ -1,0 +1,5 @@
+# ninja log v5
+5	196	7684473264461900	CMakeFiles/bomb_game.dir/bomb_game/bomb_game.c.obj	52059c1cfdd243ba
+198	355	7684473265849754	bomb_game.pyd	e91646ac49b80e40
+355	450	0	CMakeFiles/install.util	982c4e89ef51cdf9
+26	141	0	CMakeFiles/install.util	982c4e89ef51cdf9
