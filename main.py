@@ -50,38 +50,38 @@ class QuestionGraph:
                 'set1_a': {
                     'type': 'question_set',
                     'children': [],
-                    'questions': all_questions[:10],  # First 10 questions
+                    'questions': all_questions[:10],
                     'title': "License - definition and types"
                 },
                 'set1_b': {
                     'type': 'question_set',
                     'children': [],
-                    'questions': all_questions[10:20],  # Next 10 questions
-                    'title': "Use of licences  – advantages and disadvantages"
+                    'questions': all_questions[10:20],
+                    'title': "Use of licences – advantages and disadvantages"
                 },
                 'set1_c': {
                     'type': 'question_set',
                     'children': [],
-                    'questions': all_questions[20:30],  # Last 10 of set1
+                    'questions': all_questions[20:30],
                     'title': "Emerging trends in licensing"
                 },
                 # Subsets for set2
                 'set2_a': {
                     'type': 'question_set',
                     'children': [],
-                    'questions': all_questions[30:40],  # First 10 of set2
+                    'questions': all_questions[30:40],
                     'title': "Classical Programming - an introduction"
                 },
                 'set2_b': {
                     'type': 'question_set',
                     'children': [],
-                    'questions': all_questions[40:50],  # Next 10 of set2
+                    'questions': all_questions[40:50],
                     'title': "Classical Programming - Key Programming Concepts"
                 },
                 'set2_c': {
                     'type': 'question_set',
                     'children': [],
-                    'questions': all_questions[50:60],  # Last 10 of set2
+                    'questions': all_questions[50:60],
                     'title': "Classical Programming -Web Programming"
                 }
             },
@@ -123,6 +123,9 @@ class BeatTheBombGame:
         self.show_welcome = True
         self.welcome_next_button = None
 
+        self.paused_duration = 0
+        self.pause_start_time = 0
+
         # Initialize fonts
         self.question_font = pygame.font.SysFont('Arial', 24)
         self.answer_font = pygame.font.SysFont('Arial', 22)
@@ -144,7 +147,34 @@ class BeatTheBombGame:
         self.in_menu = True  # Track if we're in menu mode
 
         self.explosion_sound = pygame.mixer.Sound("explosion.wav")
-        self.reset_game()
+        self.reset_game_state()
+
+    def reset_game_state(self):
+        """Reset all game state variables"""
+        if self.questions:
+            bomb_game.init_game(len(self.questions))
+            
+        self.current_question = 0
+        self.selected_answer = -1
+        self.score = 0
+        self.game_over = False
+        self.won_game = False
+        self.clock = pygame.time.Clock()
+        self.start_time = pygame.time.get_ticks() / 1000.0
+        self.paused_duration = 0
+        self.pause_start_time = 0
+        self.show_feedback = False
+        self.feedback_time = 0
+        self.correct_answer_index = -1
+        self.show_correct_answer = False
+        self.play_again_button = None
+        self.pause_button = None
+        self.reset_button = None
+        self.paused = False
+        self.pause_menu_buttons = []
+        self.resume_button = None
+        self.pause_reset_button = None
+        self.back_button = None
 
     def draw_welcome_screen(self):
         """Draw the welcome screen with game instructions"""
@@ -196,34 +226,6 @@ class BeatTheBombGame:
             self.show_welcome = False
             return True
         return False
-
-    def reset_game(self):
-        if self.questions:
-            bomb_game.init_game(len(self.questions))
-        else:
-            bomb_game.init_game(0)
-            
-        self.current_question = 0
-        self.selected_answer = -1
-        self.score = 0
-        self.game_over = False
-        self.won_game = False
-        self.clock = pygame.time.Clock()
-        self.last_time = pygame.time.get_ticks()
-        self.show_feedback = False
-        self.feedback_time = 0
-        self.correct_answer_index = -1
-        self.show_correct_answer = False
-        self.play_again_button = None
-        self.pause_button = None
-        self.reset_button = None
-        self.paused = False
-        self.pause_start_time = 0
-        self.paused_duration = 0
-        self.pause_menu_buttons = []
-        self.resume_button = None
-        self.pause_reset_button = None
-        self.back_button = None
 
     def draw_bomb(self, fuse_percent):
         center = (self.screen_width // 2, 150)
@@ -419,7 +421,7 @@ class BeatTheBombGame:
         
         # Draw menu buttons for children
         children = self.question_graph.get_children(self.current_node)
-        button_width, button_height = 600, 80
+        button_width, button_height = 800, 80
         start_y = 180  
     
         for i, child in enumerate(children):
@@ -454,7 +456,7 @@ class BeatTheBombGame:
                     # Start the game with these questions
                     self.questions = self.question_graph.get_questions(node_id)
                     if self.questions:  # Only proceed if we got questions
-                        self.reset_game()
+                        self.reset_game_state()
                         self.in_menu = False
                         return
                 else:
@@ -485,26 +487,29 @@ class BeatTheBombGame:
         if self.paused:
             if self.resume_button and self.resume_button.collidepoint(pos):
                 self.paused = False
-                self.paused_duration = pygame.time.get_ticks() - self.pause_start_time
+                bomb_game.set_paused(0)
+                self.paused_duration += pygame.time.get_ticks() - self.pause_start_time
                 return
             elif self.pause_reset_button and self.pause_reset_button.collidepoint(pos):
-                self.current_node = 'root'
-                self.previous_nodes = []
-                self.in_menu = True
-                self.paused = False
-                return
+                 if self.questions:
+                   self.reset_game_state()
+                   bomb_game.init_game(len(self.questions))
+                   self.paused = False
+                   bomb_game.set_paused(0)
+                 return
             return
             
-        if self.pause_button and self.pause_button.collidepoint(pos):
+        if self.pause_button and self.pause_button.collidepoint(pos) and not self.game_over:
             self.paused = True
+            bomb_game.set_paused(1)
             self.pause_start_time = pygame.time.get_ticks()
             return
             
         if self.reset_button and self.reset_button.collidepoint(pos):
-            self.current_node = 'root'
-            self.previous_nodes = []
-            self.in_menu = True
-            return
+           if self.questions:  # Only reset if we have questions loaded
+             self.reset_game_state()
+             bomb_game.init_game(len(self.questions))  # Reinitialize with same questions
+           return
             
         if hasattr(self, 'back_button') and self.back_button and self.back_button.collidepoint(pos):
             if self.previous_nodes:
@@ -531,34 +536,42 @@ class BeatTheBombGame:
         self.show_correct_answer = not is_correct
         
         # Update bomb fuse based on correctness
+        bomb_game.answer_question(1 if is_correct else 0)
+        
         if is_correct:
-            bomb_game.answer_question(1)  # Correct answer extends fuse
             self.score += 10
-        else:
-            bomb_game.answer_question(0)  # Wrong answer shortens fuse
             
         self.show_feedback = True
         self.feedback_time = pygame.time.get_ticks()
 
     def update(self):
-        if self.paused or self.in_menu:
+        if self.in_menu or self.game_over:
             return
             
-        now = pygame.time.get_ticks()
-        # Account for time spent paused
-        adjusted_time = now - self.paused_duration
-        delta = (adjusted_time - self.last_time) / 1000.0
-        self.last_time = adjusted_time
-        self.paused_duration = 0  # Reset after using
+        current_time = pygame.time.get_ticks() / 1000.0  # Current time in seconds
         
-        if self.show_feedback and (now - self.feedback_time) > 1000:
+        # Calculate time accounting for pauses
+        if self.paused:
+            current_time = (self.pause_start_time - self.paused_duration) / 1000.0
+        else:
+            current_time = (pygame.time.get_ticks() - self.paused_duration) / 1000.0
+
+        # Update timer with current time
+        if bomb_game.update_timer(current_time):
+            self.handle_game_over()
+            required_score = (len(self.questions) * 10) // 2
+            self.won_game = self.score >= required_score
+            if not self.won_game:
+                self.explosion_sound.play()
+        
+        # Handle question feedback
+        if self.show_feedback and (pygame.time.get_ticks() - self.feedback_time) > 1000:
             self.show_feedback = False
             self.show_correct_answer = False
             self.selected_answer = -1
             self.current_question += 1
             
             if self.current_question >= len(self.questions):
-                # Win condition: score at least half of possible points (e.g., 5 correct answers * 10 points = 50)
                 required_score = (len(self.questions) * 10) // 2
                 self.won_game = self.score >= required_score
                 self.game_over = True
@@ -566,38 +579,6 @@ class BeatTheBombGame:
                     self.explosion_sound.play()
             else:
                 bomb_game.init_game(len(self.questions))
-        elif not self.game_over:
-            if bomb_game.update_timer(delta):
-                self.game_over = True
-                required_score = (len(self.questions) * 10) // 2
-                self.won_game = self.score >= required_score
-                if not self.won_game:
-                    self.explosion_sound.play()
-
-    def save_score(self, score):
-        """Save the player's score to a file"""
-        try:
-            filename = "scores.json"
-            scores = []
-            
-            if os.path.exists(filename):
-                with open(filename, 'r') as f:
-                    scores = json.load(f)
-            
-            scores.append({
-                "score": score,
-                "question_set": self.current_node,
-                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            })
-            
-            with open(filename, 'w') as f:
-                json.dump(scores, f)
-        except Exception as e:
-            print(f"Error saving score: {e}")
-
-    def load_scores(self):
-        """Load scores from file (currently just a placeholder)"""
-        pass
 
     def run(self):
         running = True
@@ -634,14 +615,17 @@ class BeatTheBombGame:
                     if event.key == pygame.K_p:  # Pause with P key
                         if not self.game_over:
                             self.paused = not self.paused
+                            bomb_game.set_paused(1 if self.paused else 0)
                             if self.paused:
                                 self.pause_start_time = pygame.time.get_ticks()
                             else:
-                                self.paused_duration = pygame.time.get_ticks() - self.pause_start_time
+                                # Adjust the timer to account for pause duration
+                               pause_duration = (pygame.time.get_ticks() - self.pause_start_time) / 1000.0
+                               self.start_time += pause_duration
                     elif event.key == pygame.K_r:  # Reset with R key
-                        self.current_node = 'root'
-                        self.previous_nodes = []
-                        self.in_menu = True
+                        if self.questions and not self.in_menu:
+                           self.reset_game_state()
+                           bomb_game.init_game(len(self.questions))
                     elif event.key == pygame.K_F11:
                         self.fullscreen = not self.fullscreen
                         if self.fullscreen:
