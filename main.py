@@ -112,7 +112,6 @@ class QuestionGraph:
             return self.graph['nodes'][node_id]['title']
         return ""
 
-
 class BeatTheBombGame:
     def __init__(self, screen_width=1500, screen_height=700):
         pygame.display.set_caption("Beat the Bomb Game")
@@ -127,13 +126,13 @@ class BeatTheBombGame:
         self.pause_start_time = 0
 
         # Initialize fonts
-        self.question_font = pygame.font.SysFont('Arial', 24)
-        self.answer_font = pygame.font.SysFont('Arial', 22)
-        self.score_font = pygame.font.SysFont('Arial', 32)
-        self.timer_font = pygame.font.SysFont('Arial', 48)
-        self.button_font = pygame.font.SysFont('Arial', 30)
-        self.menu_font = pygame.font.SysFont('Arial', 40)
-        self.subtitle_font = pygame.font.SysFont('Arial', 30)
+        self.question_font = pygame.font.SysFont('Helvetica', 30)
+        self.answer_font = pygame.font.SysFont('Helvetica', 26)
+        self.score_font = pygame.font.SysFont('Helvetica', 32)
+        self.timer_font = pygame.font.SysFont('Helvetica', 48)
+        self.button_font = pygame.font.SysFont('Helvetica', 30)
+        self.menu_font = pygame.font.SysFont('Helvetica', 40)
+        self.subtitle_font = pygame.font.SysFont('Helvetica', 30)
 
         with open('questions.json') as f:
             all_questions = json.load(f)
@@ -254,7 +253,7 @@ class BeatTheBombGame:
             bg_color = LIGHT_GREEN if (self.show_feedback and ans["correct"] and self.show_correct_answer) else WHITE
             answer_bg = pygame.Rect(45, 295 + i * 40, self.screen_width - 90, 32)
             pygame.draw.rect(self.screen, bg_color, answer_bg)
-            checkbox_rect = pygame.Rect(50, 300 + i * 40, 20, 20)
+            checkbox_rect = pygame.Rect(50, 305 + i * 40, 20, 20)
             pygame.draw.rect(self.screen, BLACK, checkbox_rect, 2)
             
             if self.show_feedback and i == self.selected_answer:
@@ -391,7 +390,6 @@ class BeatTheBombGame:
         score_rect = score_txt.get_rect(center=(self.screen_width // 2, self.screen_height // 2 - 50))
         self.screen.blit(score_txt, score_rect)
         
-        self.save_score(self.score)
         self.draw_play_again_button()
 
     def draw_menu(self):
@@ -558,7 +556,12 @@ class BeatTheBombGame:
 
         # Update timer with current time
         if bomb_game.update_timer(current_time):
-            self.handle_game_over()
+            self.game_over = True
+            required_score = (len(self.questions) * 10) // 2
+            self.won_game = self.score >= required_score
+            if not self.won_game:
+                self.explosion_sound.play()
+
             required_score = (len(self.questions) * 10) // 2
             self.won_game = self.score >= required_score
             if not self.won_game:
