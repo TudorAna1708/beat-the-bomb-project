@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 project(bomb_game LANGUAGES C)
 
-#  Asta este noua linie:
 include_directories("C:/Users/anatu/AppData/Local/Programs/Python/Python312/include")
 
 link_directories("C:/Users/anatu/AppData/Local/Programs/Python/Python312/libs")
@@ -13,5 +12,4 @@ set_target_properties(bomb_game PROPERTIES
     SUFFIX ".pyd"
 )
 
-# Optional - doar dacă ai folosit install()
 install(TARGETS bomb_game DESTINATION .)
