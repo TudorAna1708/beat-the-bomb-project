@@ -82,7 +82,7 @@ class QuestionGraph:
                     'type': 'question_set',
                     'children': [],
                     'questions': all_questions[50:60],
-                    'title': "Classical Programming -Web Programming"
+                    'title': "Classical Programming - Web Programming"
                 }
             },
             'edges': [
