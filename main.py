@@ -145,7 +145,7 @@ class BeatTheBombGame:
         self.menu_buttons = []
         self.in_menu = True  # Track if we're in menu mode
 
-        self.explosion_sound = pygame.mixer.Sound("explosion.wav")
+        self.explosion_sound = pygame.mixer.Sound('explosion.wav')
         self.reset_game_state()
 
     def reset_game_state(self):
