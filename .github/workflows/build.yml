@@ -27,6 +27,7 @@ jobs:
       - name: Build with PyInstaller
         run: |
           pip install pyinstaller
+          pyinstaller --onefile --hidden-import=bomb_game main.py
           pyinstaller --onefile main.py
 
       - name: Upload executable
