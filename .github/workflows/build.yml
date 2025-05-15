@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'  # Recommend using 3.10 instead of 3.13 for better compatibility
+        python-version: '3.13'
 
     - name: Install dependencies
       run: |
@@ -26,15 +26,18 @@ jobs:
     - name: Build the Cython extension
       run: |
         python setup.py build_ext --inplace
-        dir  # Verify bomb_game.pyd exists
+        dir
 
     - name: Run PyInstaller
       run: |
-        pyinstaller --onefile ^
-          --add-data "bomb_game.pyd;." ^
-          --hidden-import=pygame ^
-          --collect-all bomb_game ^
-          main.py
+        $pyinstallerArgs = @(
+          "--onefile",
+          "--add-data", "bomb_game.pyd;.",
+          "--hidden-import", "pygame",
+          "--collect-all", "bomb_game",
+          "main.py"
+        )
+        pyinstaller @pyinstallerArgs
 
     - name: Verify the build
       run: |
