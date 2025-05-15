@@ -1,3 +1,5 @@
+import sys
+sys.path.append(r"C:\\Users\\anatu\\OneDrive - Universitatea Politehnica Bucuresti\\Desktop\\beat_the_bomb_project")
 import bomb_game
 import pygame
 import json
