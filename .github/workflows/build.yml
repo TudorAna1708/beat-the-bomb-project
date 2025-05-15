@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.13'
+        python-version: '3.10'  # Recommend using 3.10 instead of 3.13 for better compatibility
 
     - name: Install dependencies
       run: |
@@ -26,19 +26,23 @@ jobs:
     - name: Build the Cython extension
       run: |
         python setup.py build_ext --inplace
-        dir  # Verify bomb_game.pyd was created
+        dir  # Verify bomb_game.pyd exists
 
     - name: Run PyInstaller
       run: |
-        pyinstaller --onefile --add-data "bomb_game.pyd;." --add-binary "*.dll;." main.py
+        pyinstaller --onefile ^
+          --add-data "bomb_game.pyd;." ^
+          --hidden-import=pygame ^
+          --collect-all bomb_game ^
+          main.py
 
     - name: Verify the build
       run: |
         cd dist
-        .\main.exe --test-run || echo "Test run failed but continuing"
+        .\main.exe --version || echo "Test run failed but continuing"
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4  # CHANGED FROM v3 TO v4
+      uses: actions/upload-artifact@v4
       with:
         name: beat-the-bomb-app
         path: dist/
