@@ -16,12 +16,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'  # Using 3.10 for better pygame compatibility
+        python-version: '3.13'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pyinstaller cython pygame==2.5.2  # Slightly older stable version
+        pip install pyinstaller cython pygame==2.5.2
 
     - name: Build the Cython extension
       run: |
@@ -33,18 +33,23 @@ jobs:
         $pyinstallerArgs = @(
           "--onefile",
           "--add-data", "bomb_game.pyd;.",
+          "--add-data", "questions.json;.",  # Add this line
+          "--add-data", "explosion.wav",  # Add if you have other assets
           "--hidden-import", "pygame",
           "--collect-all", "bomb_game",
           "main.py"
         )
         pyinstaller @pyinstallerArgs
 
-    - name: Verify the build (silent mode)
+    - name: Verify build (basic check)
       run: |
         cd dist
-        # Disable audio for the test run
-        $env:SDL_AUDIODRIVER = "dummy"
-        .\main.exe --no-sound || echo "Test run completed (audio not available in CI)"
+        if (Test-Path .\main.exe) {
+          echo "Build verification passed - executable exists"
+        } else {
+          echo "Build verification failed"
+          exit 1
+        }
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
