@@ -1,5 +1,4 @@
 import sys
-sys.path.append(r"C:\\Users\\anatu\\OneDrive - Universitatea Politehnica Bucuresti\\Desktop\\beat_the_bomb_project")
 import bomb_game
 import pygame
 import json
@@ -24,16 +23,6 @@ LIGHT_GREEN = (0, 255, 0)
 GRAY = (200, 200, 200)
 LIGHT_BLUE = (173, 216, 230)
 DARK_GRAY = (100, 100, 100)
-
-def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-         #PyInstaller creates a temp folder and stores path in _MEIPASS
-         base_path = sys._MEIPASS
-    except Exception:
-         base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
 
 class QuestionGraph:
     def __init__(self, all_questions):
@@ -145,35 +134,9 @@ class BeatTheBombGame:
         self.menu_font = pygame.font.SysFont('Helvetica', 40)
         self.subtitle_font = pygame.font.SysFont('Helvetica', 30)
     
-        # Use resource_path to locate the file
-        questions_path = resource_path('questions.json')
-        try:
-          with open(questions_path, 'r', encoding='utf-8') as f:
-             all_questions = json.load(f)
-        except FileNotFoundError:
-           print(f"Error: Could not find questions.json at {questions_path}")
-           # Provide default questions
-           all_questions = [{
-               "question": "Sample question", 
-               "answers": [
-                   {"text": "Correct answer", "correct": True},
-                   {"text": "Wrong answer 1", "correct": False},
-                   {"text": "Wrong answer 2", "correct": False},
-                   {"text": "Wrong answer 3", "correct": False}
-                ]
-             }]
+        with open('questions.json') as f:
+            all_questions = json.load(f)
 
-        # Then initialize the question graph
-        self.question_graph = QuestionGraph(all_questions)
-
-        # Load sound with resource_path
-        try:
-            sound_path = resource_path('explosion.wav')
-            self.explosion_sound = pygame.mixer.Sound(sound_path)
-        except FileNotFoundError:
-            print(f"Error: Could not find explosion.wav at {sound_path}")
-            self.explosion_sound = None  # Handle missing sound gracefully   
-            
         # Initialize question graph
         self.question_graph = QuestionGraph(all_questions)
         self.current_node = 'root'
