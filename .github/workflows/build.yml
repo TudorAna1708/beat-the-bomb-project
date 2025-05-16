@@ -13,15 +13,18 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python
+    - name: Set up Python 3.10
       uses: actions/setup-python@v4
       with:
-        python-version: '3.13'
+        python-version: '3.10'  # Critical change - must use 3.10
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pyinstaller cython pygame==2.5.2
+        pip install setuptools==65.5.0  # Required for distutils
+        pip install wheel
+        pip install pyinstaller cython
+        pip install pygame==2.5.2 --prefer-binary  # Use prebuilt wheel
 
     - name: Build the Cython extension
       run: |
@@ -33,21 +36,21 @@ jobs:
         $pyinstallerArgs = @(
           "--onefile",
           "--add-data", "bomb_game.pyd;.",
-          "--add-data", "questions.json;.",  # Add this line
-          "--add-data", "explosion.wav",  # Add if you have other assets
+          "--add-data", "questions.json;.",
+          "--add-data", "explosion.wav",
           "--hidden-import", "pygame",
           "--collect-all", "bomb_game",
           "main.py"
         )
         pyinstaller @pyinstallerArgs
 
-    - name: Verify build (basic check)
+    - name: Verify build
       run: |
         cd dist
         if (Test-Path .\main.exe) {
-          echo "Build verification passed - executable exists"
+          echo "Build successful"
         } else {
-          echo "Build verification failed"
+          echo "Build failed"
           exit 1
         }
 
