@@ -36,8 +36,8 @@ jobs:
         $pyinstallerArgs = @(
           "--onefile",
           "--add-data", "bomb_game.pyd;.",
-          "--add-data", "questions.json;.",
-          "--add-data", "explosion.wav;.",
+          "--add-data", "questions.json;questions.json",
+          "--add-data", "explosion.wav;explosion.wav",
           "--hidden-import", "pygame",
           "--collect-all", "bomb_game",
           "main.py"
