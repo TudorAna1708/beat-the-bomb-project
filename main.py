@@ -4,6 +4,13 @@ import pygame
 import json
 import random
 import os
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        base_path = sys._MEIPASS  # When bundled by PyInstaller
+    except AttributeError:
+        base_path = os.path.abspath(".")  # When running normally
+    return os.path.join(base_path, relative_path)
 from datetime import datetime
 
 # Initialize pygame
@@ -134,7 +141,7 @@ class BeatTheBombGame:
         self.menu_font = pygame.font.SysFont('Helvetica', 40)
         self.subtitle_font = pygame.font.SysFont('Helvetica', 30)
     
-        with open('questions.json') as f:
+        with open(resource_path('questions.json')) as f:
             all_questions = json.load(f)
 
         # Initialize question graph
@@ -145,7 +152,7 @@ class BeatTheBombGame:
         self.menu_buttons = []
         self.in_menu = True  # Track if we're in menu mode
 
-        self.explosion_sound = pygame.mixer.Sound('explosion.wav')
+        self.explosion_sound = pygame.mixer.Sound(resource_path('explosion.wav'))
         self.reset_game_state()
 
     def reset_game_state(self):
